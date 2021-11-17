@@ -15,10 +15,9 @@ public class TeacherPort {
 		teacherFrame.pack();
 		teacherFrame.setVisible(true);
 		
-		//设置容器布局  边界布局
-		teacherFrame.setLayout(new BorderLayout());
-		
-		//边界布局管理区域 START
+		//设置容器布局  Grid
+		//teacherFrame.setLayout(new BorderLayout());
+		teacherFrame.setLayout(new GridLayout(1,2));
 		
 		//菜单栏
 		JMenuBar menuBar = new JMenuBar();
@@ -41,48 +40,33 @@ public class TeacherPort {
 		menuBar.add(menu1);
 		 
 		teacherFrame.setJMenuBar(menuBar);
-		
-		//PAGE_STAET  用菜单栏代替了
-		//teacherFrame.add(checkBox0,BorderLayout.PAGE_START);
-		
-		//PAGE_END
-		
-		//teacherFrame.add(,BorderLayout.PAGE_END);
-		//LINE_START 学生在线状态
-		
+	}	
+	public static void GUI_StudentData(){
 		//!!!测试写法,最终应根据学生上线情况new对象动态加载,测试未成功!!!
 		JScrollPane scrollPane_student =  new JScrollPane();
 		
-		JPanel panel = new JPanel();
+		JPanel panel_stu = new JPanel();
+		panel_stu.setLayout(new GridLayout(60,3));
 		
-		JPanel panel_student0 = new JPanel();
-		JLabel label_status0 = new JLabel("0");
-		JLabel label_stuName0 = new JLabel("zhangsan");
+		JCheckBox checkBox_stu1 = new JCheckBox("zhangsan");
 		
-		panel_student0.add(label_status0);
-		panel_student0.add(label_stuName0);
+		panel_stu.add(checkBox_stu1);
 		
-		panel.add(panel_student0);
+		JCheckBox checkBox_stu2 = new JCheckBox("lisi");
 		
-		JPanel panel_student1 = new JPanel();
-		JLabel label_status1 = new JLabel("1");
-		JLabel label_stuName1 = new JLabel("lisi");
+		panel_stu.add(checkBox_stu2);
 		
-		panel_student1.add(label_status1);
-		panel_student1.add(label_stuName1);
-		
-		panel.add(panel_student1);
-		
-		scrollPane_student.setViewportView(panel);
-		teacherFrame.add(scrollPane_student,BorderLayout.LINE_START);
-		//LINE_END
-		
-		//teacherFrame.add(,BorderLayout.LINE_END);
-		//CENTER
-		
-		//teacherFrame.add(,BorderLayout.CENTER);
-		
-		//边界布局管理区域 END
-		
+		scrollPane_student.setViewportView(panel_stu);
+
+		teacherFrame.add(scrollPane_student);
+
+		//paper file test code
+		JScrollPane scrollPane_paper = new JScrollPane();
+
+		JPanel panel1 = new JPanel();
+
+		teacherFrame.add(scrollPane_paper);
 	}	
+	public static void GUI_PaperFileData(){
+	}
 }
